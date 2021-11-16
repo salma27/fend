@@ -24,8 +24,9 @@
  */
 
 /*
-adding the fourth section by copying the content of a previously made section
-then altering the differences such as the id and the header content.
+adding the fourth section by copying the content of a previously made section,
+then altering the differences such as the id and the header content,
+and finally adding the new element as the last section.
 */
 
 let sections = document.querySelectorAll("section");
@@ -35,8 +36,28 @@ section4.id = "section4";
 section4.setAttribute("data-nav", "Section 4");
 section4.innerHTML = sectionContent;
 section4.firstElementChild.firstElementChild.textContent = "Section 4";
-sections[2].insertAdjacentHTML("afterend", section4.outerHTML);
+sections[sections.length - 1].insertAdjacentHTML(
+    "afterend",
+    section4.outerHTML
+);
 
+/**
+ * creating navbar using a for loop that loops on all sections
+ */
+function navData(section) {
+    let newElement = document.createElement("li");
+    newElement.innerHTML = `<a href="#">${section.getAttribute(
+        "data-nav"
+    )}</a>`;
+    newElement.firstElementChild.className = "menu__link";
+    frag.appendChild(newElement);
+}
+let frag = document.createDocumentFragment();
+let navBar = document.querySelector("nav");
+navBar.style.float = "right";
+sections = document.querySelectorAll("section");
+sections.forEach(navData);
+navBar.appendChild(frag);
 /**
  * End Global Variables
  * Start Helper Functions
