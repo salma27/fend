@@ -22,14 +22,19 @@
  * Define Global Variables
  *
  */
+
+/*
+adding the fourth section by copying the content of a previously made section
+then altering the differences such as the id and the header content.
+*/
+
 let sections = document.querySelectorAll("section");
-let sectionContent = sections[1].innerHTML;
+let sectionContent = sections[0].innerHTML;
 let section4 = document.createElement("section");
 section4.id = "section4";
 section4.setAttribute("data-nav", "Section 4");
 section4.innerHTML = sectionContent;
 section4.firstElementChild.firstElementChild.textContent = "Section 4";
-
 sections[2].insertAdjacentHTML("afterend", section4.outerHTML);
 
 /**
