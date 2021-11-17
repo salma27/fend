@@ -43,21 +43,36 @@ sections[sections.length - 1].insertAdjacentHTML(
 
 /**
  * creating navbar using a for loop that loops on all sections
+ * and when clicked scrolls to the section
  */
+function scrolling(e) {
+    e.preventDefault();
+
+    let item = this.firstElementChild.getAttribute("href");
+    let top = document.querySelector(item).offsetTop;
+
+    scroll({
+        top: top,
+        behavior: "smooth",
+    });
+}
 function navData(section) {
     let newElement = document.createElement("li");
-    newElement.innerHTML = `<a href="#">${section.getAttribute(
+    newElement.innerHTML = `<a href="#${section.id}">${section.getAttribute(
         "data-nav"
     )}</a>`;
     newElement.firstElementChild.className = "menu__link";
+    newElement.addEventListener("click", scrolling);
     frag.appendChild(newElement);
 }
+
 let frag = document.createDocumentFragment();
 let navBar = document.querySelector("nav");
 navBar.style.float = "right";
 sections = document.querySelectorAll("section");
 sections.forEach(navData);
 navBar.appendChild(frag);
+
 /**
  * End Global Variables
  * Start Helper Functions
