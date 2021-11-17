@@ -83,20 +83,6 @@ navBar.appendChild(frag);
 // Scroll to anchor ID using scrollTO event
 
 /**
- * smoothly scroll when the item is clicked on navbar
- */
-function scrolling(e) {
-    e.preventDefault();
-    let id = this.firstElementChild.getAttribute("href");
-    let section = document.querySelector(id);
-
-    scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-    });
-}
-
-/**
  * End Main Functions
  * Begin Events
  *
@@ -105,5 +91,24 @@ function scrolling(e) {
 // Build menu
 
 // Scroll to section on link click
+/**
+ * smoothly scroll when the item is clicked on navbar
+ */
+function scrolling(e) {
+    e.preventDefault();
+    let id = this.firstElementChild.getAttribute("href");
+    let section = document.querySelector(id);
 
+    scroll({
+        top: section.offsetTop,
+        behavior: "smooth",
+    });
+    toActive(section);
+}
 // Set sections as active
+function toActive(section) {
+    let oldActive = document.querySelector(".active");
+    if (oldActive)
+        oldActive.className = oldActive.className.replace("active", "");
+    section.className += " active";
+}
