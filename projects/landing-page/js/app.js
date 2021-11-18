@@ -81,9 +81,7 @@ sections.forEach(navData);
 navBar.appendChild(frag);
 
 // Add class 'active' to section when near top of viewport
-/**
- * It's the same implemented toActive function written down.
- */
+
 // Scroll to anchor ID using scrollTO event
 window.addEventListener("scroll", function () {
     sections.forEach((section) => {
