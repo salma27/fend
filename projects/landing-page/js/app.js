@@ -81,7 +81,11 @@ sections.forEach(navData);
 navBar.appendChild(frag);
 
 // Add class 'active' to section when near top of viewport
-
+function toActive(section) {
+    let oldActive = document.querySelector(".active");
+    if (oldActive) oldActive.classList.remove("active");
+    section.classList.add("active");
+}
 // Scroll to anchor ID using scrollTO event
 window.addEventListener("scroll", function () {
     sections.forEach((section) => {
@@ -116,15 +120,10 @@ function scrolling(e) {
     let id = this.firstElementChild.getAttribute("href");
     let section = document.querySelector(id);
 
-    scroll({
+    scrollTo({
         top: section.offsetTop,
         behavior: "smooth",
     });
     toActive(section);
 }
 // Set sections as active
-function toActive(section) {
-    let oldActive = document.querySelector(".active");
-    if (oldActive) oldActive.classList.remove("active");
-    section.classList.add("active");
-}
