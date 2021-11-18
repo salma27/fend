@@ -89,9 +89,12 @@ window.addEventListener("scroll", function () {
         let sectionHeight = section.offsetHeight;
         let sectionEnd = sectionTop + sectionHeight;
         let ScreenYCoordinate = this.window.pageYOffset;
-        console.log(sectionTop, sectionEnd, ScreenYCoordinate);
-        if (ScreenYCoordinate >= sectionTop && ScreenYCoordinate < sectionEnd) {
-            console.log(section.id);
+        const screenHeight = this.window.innerHeight / 3;
+        if (
+            ScreenYCoordinate >= sectionTop - screenHeight &&
+            ScreenYCoordinate < sectionEnd - screenHeight
+        ) {
+            toActive(section);
         }
     });
 });
@@ -122,7 +125,6 @@ function scrolling(e) {
 // Set sections as active
 function toActive(section) {
     let oldActive = document.querySelector(".active");
-    if (oldActive)
-        oldActive.className = oldActive.className.replace("active", "");
-    section.className += "active";
+    if (oldActive) oldActive.classList.remove("active");
+    section.classList.add("active");
 }
