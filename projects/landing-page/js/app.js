@@ -89,6 +89,12 @@ function toActive(section) {
 // Scroll to anchor ID using scrollTO event
 window.addEventListener("scroll", function () {
     sections.forEach((section) => {
+        /**
+         * *Using This Method didn't work properly.
+         * let sectionInfo = section.getBoundingClientRect();
+         * let sectionTop = sectionInfo.top;
+         * let sectionBottom = sectionInfo.bottom;
+         */
         let sectionTop = section.offsetTop;
         let sectionHeight = section.offsetHeight;
         let sectionEnd = sectionTop + sectionHeight;
