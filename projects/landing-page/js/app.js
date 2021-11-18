@@ -25,7 +25,7 @@
 
 let sections = document.querySelectorAll("section");
 let sectionContent = sections[0].innerHTML;
-let section4 = document.createElement("section");
+let addedSection = document.createElement("section");
 
 let frag = document.createDocumentFragment();
 let navBar = document.querySelector("nav");
@@ -42,13 +42,15 @@ then altering the differences such as the id and the header content,
 and finally adding the new element as the last section.
 */
 function addSection() {
-    section4.id = "section4";
-    section4.setAttribute("data-nav", "Section 4");
-    section4.innerHTML = sectionContent;
-    section4.firstElementChild.firstElementChild.textContent = "Section 4";
+    sections = document.querySelectorAll("section");
+    addedSection.id = "section" + (sections.length + 1);
+    addedSection.setAttribute("data-nav", "Section " + (sections.length + 1));
+    addedSection.innerHTML = sectionContent;
+    addedSection.firstElementChild.firstElementChild.textContent =
+        "Section " + (sections.length + 1);
     sections[sections.length - 1].insertAdjacentHTML(
         "afterend",
-        section4.outerHTML
+        addedSection.outerHTML
     );
 }
 addSection();
@@ -110,5 +112,5 @@ function toActive(section) {
     let oldActive = document.querySelector(".active");
     if (oldActive)
         oldActive.className = oldActive.className.replace("active", "");
-    section.className += " active";
+    section.className += "active";
 }
