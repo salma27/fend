@@ -83,6 +83,18 @@ navBar.appendChild(frag);
 // Add class 'active' to section when near top of viewport
 
 // Scroll to anchor ID using scrollTO event
+window.addEventListener("scroll", function () {
+    sections.forEach((section) => {
+        let sectionTop = section.offsetTop;
+        let sectionHeight = section.offsetHeight;
+        let sectionEnd = sectionTop + sectionHeight;
+        let ScreenYCoordinate = this.window.pageYOffset;
+        console.log(sectionTop, sectionEnd, ScreenYCoordinate);
+        if (ScreenYCoordinate >= sectionTop && ScreenYCoordinate < sectionEnd) {
+            console.log(section.id);
+        }
+    });
+});
 
 /**
  * End Main Functions
