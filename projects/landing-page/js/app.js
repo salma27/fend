@@ -88,7 +88,7 @@ function toActive(section) {
 }
 // Scroll to anchor ID using scrollTO event
 window.addEventListener("scroll", function () {
-    sections.forEach((section) => {
+    sections.forEach((section, i) => {
         /**
          * *Using This Method didn't work properly.
          * let sectionInfo = section.getBoundingClientRect();
@@ -99,11 +99,14 @@ window.addEventListener("scroll", function () {
         let sectionHeight = section.offsetHeight;
         let sectionEnd = sectionTop + sectionHeight;
         let ScreenYCoordinate = this.window.pageYOffset;
+        const allLinks = document.querySelectorAll(".menu__link");
         const screenHeight = this.window.innerHeight / 3;
         if (
             ScreenYCoordinate >= sectionTop - screenHeight &&
             ScreenYCoordinate < sectionEnd - screenHeight
         ) {
+            console.log("here");
+            allLinks[i].focus();
             toActive(section);
         }
     });
