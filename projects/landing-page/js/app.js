@@ -135,3 +135,26 @@ function scrolling(e) {
     toActive(section);
 }
 // Set sections as active
+
+//make a button to scroll to top
+const addToTopBtn = () => {
+    const toTopBtn = document.createElement("button");
+    toTopBtn.innerHTML = `<a href="#"><i class="fa fa-angle-up"></i></a>`;
+    toTopBtn.setAttribute(
+        "style",
+        "display:block; margin-left: auto;background: transparent; border: none"
+    );
+    toTopBtn.firstElementChild.setAttribute("style", "font-size: 40px");
+    toTopBtn.addEventListener("click", scrollToTop);
+    const footer = document.querySelector("footer");
+    footer.insertAdjacentElement("beforebegin", toTopBtn);
+};
+addToTopBtn();
+//scroll to top function
+function scrollToTop(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+}
