@@ -41,7 +41,7 @@ adding the fourth section by copying the content of a previously made section,
 then altering the differences such as the id and the header content,
 and finally adding the new element as the last section.
 */
-function addSection() {
+let addSection = () => {
     sections = document.querySelectorAll("section");
     addedSection.id = "section" + (sections.length + 1);
     addedSection.setAttribute("data-nav", "Section " + (sections.length + 1));
@@ -52,7 +52,7 @@ function addSection() {
         "afterend",
         addedSection.outerHTML
     );
-}
+};
 addSection();
 /**
  * End Helper Functions
@@ -66,7 +66,7 @@ addSection();
  * creating navbar using a for loop that loops on all sections
  */
 
-function navData(section) {
+let navData = (section) => {
     let newElement = document.createElement("li");
     newElement.innerHTML = `<a href="#${section.id}">${section.getAttribute(
         "data-nav"
@@ -74,20 +74,20 @@ function navData(section) {
     newElement.firstElementChild.className = "menu__link";
     newElement.addEventListener("click", scrolling);
     frag.appendChild(newElement);
-}
+};
 navBar.style.float = "right";
 sections = document.querySelectorAll("section");
 sections.forEach(navData);
 navBar.appendChild(frag);
 
 // Add class 'active' to section when near top of viewport
-function toActive(section) {
+let toActive = (section) => {
     let oldActive = document.querySelector(".active");
     if (oldActive) oldActive.classList.remove("active");
     section.classList.add("active");
-}
+};
 // Scroll to anchor ID using scrollTO event
-window.addEventListener("scroll", function () {
+window.addEventListener("scroll", () => {
     sections.forEach((section, i) => {
         /**
          * *Using This Method didn't work properly.
@@ -105,7 +105,6 @@ window.addEventListener("scroll", function () {
             ScreenYCoordinate >= sectionTop - screenHeight &&
             ScreenYCoordinate < sectionEnd - screenHeight
         ) {
-            console.log("here");
             allLinks[i].focus();
             toActive(section);
         }
