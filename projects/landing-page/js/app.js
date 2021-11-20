@@ -72,7 +72,7 @@ let navData = (section) => {
         "data-nav"
     )}</a>`;
     newElement.firstElementChild.className = "menu__link";
-    newElement.addEventListener("click", scrolling);
+    newElement.addEventListener("click", scrollToSection);
     frag.appendChild(newElement);
 };
 navBar.style.float = "right";
@@ -86,31 +86,46 @@ let toActive = (section) => {
     if (oldActive) oldActive.classList.remove("active");
     section.classList.add("active");
 };
-// Scroll to anchor ID using scrollTO event
-window.addEventListener("scroll", () => {
-    sections.forEach((section, i) => {
-        /**
-         * *Using This Method didn't work properly.
-         * let sectionInfo = section.getBoundingClientRect();
-         * let sectionTop = sectionInfo.top;
-         * let sectionBottom = sectionInfo.bottom;
-         */
-        let sectionTop = section.offsetTop;
-        let sectionHeight = section.offsetHeight;
-        let sectionEnd = sectionTop + sectionHeight;
-        let ScreenYCoordinate = this.window.pageYOffset;
-        const allLinks = document.querySelectorAll(".menu__link");
-        const screenHeight = this.window.innerHeight / 3;
-        if (
-            ScreenYCoordinate >= sectionTop - screenHeight &&
-            ScreenYCoordinate < sectionEnd - screenHeight
-        ) {
-            allLinks[i].focus();
-            toActive(section);
-        }
-    });
-});
 
+//hide navbar when not scrolling
+
+let notScrolling = () => {
+    let isScrolling;
+    window.clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+        document.querySelector("nav").style.display = "none";
+    }, 4000);
+};
+
+// Scroll to anchor ID using scrollTO event
+let scrolling = () => {
+    window.addEventListener("scroll", () => {
+        document.querySelector("nav").style.display = "inline";
+        sections.forEach((section, i) => {
+            /**
+             * *Using This Method didn't work properly.
+             * let sectionInfo = section.getBoundingClientRect();
+             * let sectionTop = sectionInfo.top;
+             * let sectionBottom = sectionInfo.bottom;
+             */
+            let sectionTop = section.offsetTop;
+            let sectionHeight = section.offsetHeight;
+            let sectionEnd = sectionTop + sectionHeight;
+            let ScreenYCoordinate = this.window.pageYOffset;
+            const allLinks = document.querySelectorAll(".menu__link");
+            const screenHeight = this.window.innerHeight / 3;
+            if (
+                ScreenYCoordinate >= sectionTop - screenHeight &&
+                ScreenYCoordinate < sectionEnd - screenHeight
+            ) {
+                allLinks[i].focus();
+                toActive(section);
+            }
+        });
+        notScrolling();
+    });
+};
+scrolling();
 /**
  * End Main Functions
  * Begin Events
@@ -123,7 +138,7 @@ window.addEventListener("scroll", () => {
 /**
  * smoothly scroll when the item is clicked on navbar
  */
-function scrolling(e) {
+function scrollToSection(e) {
     e.preventDefault();
     let id = this.firstElementChild.getAttribute("href");
     let section = document.querySelector(id);
