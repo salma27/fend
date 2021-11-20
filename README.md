@@ -1,37 +1,54 @@
 # Front End Nanodegree Program
 
-Front End Nanodegree Content & Project Resources
+General Front End Nanodegree Content Resources
+This is the first project in the professional track
+The project is to update the javascript file to meet the wanted requirements in a branch called refresh-2019 with a pre-prepared html and css files.
 
 ## Table of Contents
 
-* [Projects](#projects)
-* [Courses](#courses)
-* [Style-Guide](#style-guide)
+* [Repo]
+* [Project Required Functions]
+* [Tools]
 
-## Projects
 
-The following is a list of current projects required to complete the Front End Nanodegree.
+## Repo
 
-Note that projects that do not include associated starter code are not linked here.
+Inside the repo you'll find the following folders used to organize resources for FEND. css containing styles.css, js containing app.js, and index.html file all inside the landing-page folder
 
-1. Personal Blog Website
-2. [Landing Page](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page)
-3. [Weather Journal App](https://github.com/udacity/fend/tree/refresh-2019/projects/weather-journal-app)
-4. [Evaluate A News Article with Natural Language Processing](https://github.com/udacity/fend/tree/refresh-2019/projects/evaluate-news-nlp)
-5. Capstone - Travel App
+```
+fend/
+└── landing-page/
+     ├── css
+     │    └── styles.css
+     ├── js
+     │    └── app.js
+     ├── index.html
+     └── README.md
+```
 
-## Courses
+## Project Required Functions
 
-The following is a list of the courses associated with the Front End Nanodegree.
+The following is a list of functions required to complete the first project of the Front End Nanodegree.
 
-* C1 - CSS, Website Layout, Website Components
-* C2 - JavaScript & The DOM
-* C3 - Web API's and Asynchronous Applications
-* C4 - Build Tools and Single Page Web Apps
-* C5 - Capstone
+1. Linking the js file.
+2. Adding more sections to the html file.
+3. Build a navigation menu (navbar).
+4. Distinguish the section in view.
+5. Scrolling to the required section through the navbar.
+6. Add an active state to the section in view.
+7. Hide the navigation bar while not scrolling.
+8. Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page.
 
-## Style-Guide
+#### Note: All of the functions were done using the js file attached.
 
-See below for the Udacity Style Guide used thoroughout the Front End Nanodegree.
+## Tools
 
-* [Nanodegree Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/)
+The following is a list of tools used thoroughout the project.
+
+* HTML
+* CSS
+* JavaScript
+
+## JS File Creator
+
+**Salma Essam**
