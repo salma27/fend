@@ -54,6 +54,22 @@ let addSection = () => {
     );
 };
 addSection();
+addSection();
+
+//create a button to scroll to top when clicked
+const addToTopBtn = () => {
+    const toTopBtn = document.createElement("button");
+    toTopBtn.innerHTML = `<a href="#"><i class="fa fa-angle-up"></i></a>`;
+    toTopBtn.setAttribute(
+        "style",
+        "display:block; margin-left: auto;background: transparent; border: none"
+    );
+    toTopBtn.firstElementChild.setAttribute("style", "font-size: 40px");
+    toTopBtn.addEventListener("click", scrollToTop);
+    const footer = document.querySelector("footer");
+    footer.insertAdjacentElement("beforebegin", toTopBtn);
+};
+addToTopBtn();
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -61,7 +77,6 @@ addSection();
  */
 
 // build the nav
-
 /**
  * creating navbar using a for loop that loops on all sections
  */
@@ -97,7 +112,7 @@ let notScrolling = () => {
     }, 4000);
 };
 
-// Scroll to anchor ID using scrollTO event
+// Scroll to anchor ID using scroll event
 let scrolling = () => {
     window.addEventListener("scroll", () => {
         document.querySelector("nav").style.display = "inline";
@@ -132,8 +147,6 @@ scrolling();
  *
  */
 
-// Build menu
-
 // Scroll to section on link click
 /**
  * smoothly scroll when the item is clicked on navbar
@@ -149,22 +162,7 @@ function scrollToSection(e) {
     });
     toActive(section);
 }
-// Set sections as active
 
-//make a button to scroll to top
-const addToTopBtn = () => {
-    const toTopBtn = document.createElement("button");
-    toTopBtn.innerHTML = `<a href="#"><i class="fa fa-angle-up"></i></a>`;
-    toTopBtn.setAttribute(
-        "style",
-        "display:block; margin-left: auto;background: transparent; border: none"
-    );
-    toTopBtn.firstElementChild.setAttribute("style", "font-size: 40px");
-    toTopBtn.addEventListener("click", scrollToTop);
-    const footer = document.querySelector("footer");
-    footer.insertAdjacentElement("beforebegin", toTopBtn);
-};
-addToTopBtn();
 //scroll to top function
 function scrollToTop(e) {
     e.preventDefault();
