@@ -26,3 +26,17 @@ const listening = () => {
     console.log(`Server running on localhost: ${port}`);
 };
 const server = app.listen(port, listening);
+
+/* Function to GET Project Data */
+app.get("/", function (req, res) {
+    res.send(projectData);
+});
+app.post("/", function (req, res) {
+    let newData = req.body;
+    let newEntry = {
+        temperature: newData.temperature,
+        date: newData.date,
+        userResponse: newData.userResponse,
+    };
+    projectData.push(newEntry);
+});
