@@ -26,7 +26,7 @@ const listening = () => {
     console.log(`Server running on localhost: ${port}`);
 };
 const server = app.listen(port, listening);
-
+////////////////////// na2s at2kd en newEntry btdaf s7 fl projectData
 /* Function to GET Project Data */
 app.get("/getdata", function (req, res) {
     res.send(projectData);
