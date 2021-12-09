@@ -22,17 +22,24 @@ app.use(express.static("website"));
 
 // Setup Server
 const port = 8080;
+
+// Callback to debug
 const listening = () => {
     console.log(`Server running on localhost: ${port}`);
 };
+
+// Spin up the server
 const server = app.listen(port, listening);
 
 const data = [];
+
+// Callback function to complete GET '/all'
 /* Function to GET Project Data */
-app.get("/getdata", function (req, res) {
+app.get("/all", function (req, res) {
     res.send(data);
 });
 
+// Post Route
 /* POST Function to Save Project Data */
 app.post("/add", function (req, res) {
     let newData = req.body;
