@@ -30,14 +30,9 @@ const server = app.listen(port, listening);
 const data = [];
 /* Function to GET Project Data */
 app.get("/getdata", function (req, res) {
-    //    res.send(projectData);
     res.send(data);
 });
 
-app.get("/alldata", (req, res) => {
-    res.send(data);
-    console.log(data);
-});
 /* POST Function to Save Project Data */
 app.post("/add", function (req, res) {
     let newData = req.body;
@@ -46,7 +41,6 @@ app.post("/add", function (req, res) {
         date: newData.date,
         userResponse: newData.userResponse,
     };
-    data.push(newEntry);
+    data.unshift(newEntry);
     res.send(data);
-    console.log(data);
 });
