@@ -1,4 +1,6 @@
 /* Global Variables */
+
+// Personal API Key for OpenWeatherMap API
 const baseURL = "http://api.openweathermap.org/data/2.5/weather?id=";
 const apiKey = "&appid=8671f126531f512ed94529290f2706a6";
 
@@ -6,8 +8,10 @@ const apiKey = "&appid=8671f126531f512ed94529290f2706a6";
 let d = new Date();
 let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
 
+// Event listener to add function to existing HTML DOM element
 document.getElementById("generate").addEventListener("click", doAction);
 
+/* Function called by event listener */
 function doAction(e) {
     const zipCode = document.getElementById("zip").value; ///ex: 524901
     const userResponse = document.getElementById("feelings").value;
@@ -22,6 +26,7 @@ function doAction(e) {
     });
 }
 
+/* Function to GET Web API Data*/
 const getData = async (baseURL, zipCode, apikey) => {
     const res = await fetch(baseURL + zipCode + apikey);
     try {
@@ -32,6 +37,7 @@ const getData = async (baseURL, zipCode, apikey) => {
     }
 };
 
+/* Function to POST data */
 const postData = async (url = "", data) => {
     const response = await fetch(url, {
         method: "POST",
@@ -50,6 +56,7 @@ const postData = async (url = "", data) => {
     }
 };
 
+/* Function to GET Project Data */
 const updateUI = async () => {
     const request = await fetch("/getdata");
     try {
