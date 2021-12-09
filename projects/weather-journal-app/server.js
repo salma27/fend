@@ -33,15 +33,18 @@ const server = app.listen(port, listening);
 
 const data = [];
 
-// Callback function to complete GET '/all'
 /* Function to GET Project Data */
-app.get("/all", function (req, res) {
-    res.send(data);
-});
+app.get("/all", getAllData);
 
+// Callback function to complete GET '/all'
+function getAllData(req, res) {
+    res.send(data);
+}
 // Post Route
+app.post("/add", addData);
+
 /* POST Function to Save Project Data */
-app.post("/add", function (req, res) {
+function addData(req, res) {
     let newData = req.body;
     let newEntry = {
         temperature: newData.temperature,
@@ -50,4 +53,4 @@ app.post("/add", function (req, res) {
     };
     data.unshift(newEntry);
     res.send(data);
-});
+}
