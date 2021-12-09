@@ -26,13 +26,19 @@ const listening = () => {
     console.log(`Server running on localhost: ${port}`);
 };
 const server = app.listen(port, listening);
-////////////////////// na2s at2kd en newEntry btdaf s7 fl projectData
+
+const data = [];
 /* Function to GET Project Data */
 app.get("/getdata", function (req, res) {
-    res.send(projectData);
+    //    res.send(projectData);
+    res.send(data);
+});
+
+app.get("/alldata", (req, res) => {
+    res.send(data);
+    console.log(data);
 });
 /* POST Function to Save Project Data */
-const data = [];
 app.post("/add", function (req, res) {
     let newData = req.body;
     let newEntry = {
@@ -41,6 +47,6 @@ app.post("/add", function (req, res) {
         userResponse: newData.userResponse,
     };
     data.push(newEntry);
-    //res.send(projectData);
-    //console.log(projectData);
+    res.send(data);
+    console.log(data);
 });
