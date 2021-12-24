@@ -6,10 +6,34 @@ The project is to update the javascript file to meet the wanted requirements in 
 
 ## Table of Contents
 
-* [Repo]
-* [Project Required Functions]
-* [Tools]
+## Table of Contents
 
+* Project Description
+* Instructions
+* Repo
+* Used Technologies
+* Repo's Author
+* Creators
+
+## Project Description
+
+This project is a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
+
+## Instructions
+
+1. Start by linking your app.js.
+2. Build out your HTML and at least 4 content sections.
+3. Build the navigation menu.
+4. Add functionality to distinguish the section in view.
+5. Add the functionality to scroll to sections.
+6. Refactor.
+7. Add additional sections to your HTML document.
+8. Test the performance.
+9. Add an active state to your navigation items when a section is in the viewport.
+10. Hide fixed navigation bar while not scrolling (it should still be present on page load).
+11. Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page.
+
+#### Note: All of the functions were done using the js file attached.
 
 ## Repo
 
@@ -26,29 +50,29 @@ fend/
      └── README.md
 ```
 
-## Project Required Functions
+## Used Technologies
 
-The following is a list of functions required to complete the first project of the Front End Nanodegree.
+The following is a list of technologies used thoroughout the project:
 
-1. Linking the js file.
-2. Adding more sections to the html file.
-3. Build a navigation menu (navbar).
-4. Distinguish the section in view.
-5. Scrolling to the required section through the navbar.
-6. Add an active state to the section in view.
-7. Hide the navigation bar while not scrolling.
-8. Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page.
+1. HTML.
+2. CSS.
+3. JavaScript.
 
-#### Note: All of the functions were done using the js file attached.
-
-## Tools
-
-The following is a list of tools used thoroughout the project.
-
-* HTML
-* CSS
-* JavaScript
-
-## JS File Creator
+## Repo's Author
 
 **Salma Essam**
+
+* <https://github.com/salma27>
+
+## Creators
+
+**Cameron Pittman**
+
+* <https://twitter.com/cwpittman>
+* <https://github.com/cameronwp>
+
+**James Parkes**
+
+* <https://twitter.com/parkesrjames>
+* <https://github.com/jamesparkes>
+
