@@ -1,12 +1,13 @@
 /* Global Variables */
 
 // Personal API Key for OpenWeatherMap API
+const apiKey = "&appid=8671f126531f512ed94529290f2706a6&units=imperial";
 const baseURL = "http://api.openweathermap.org/data/2.5/weather?id=";
-const apiKey = "&appid=8671f126531f512ed94529290f2706a6";
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
+let month = d.getMonth() + 1;
+let newDate = month + "." + d.getDate() + "." + d.getFullYear();
 
 // Event listener to add function to existing HTML DOM element
 document.getElementById("generate").addEventListener("click", doAction);
@@ -61,9 +62,9 @@ const updateUI = async () => {
     const request = await fetch("/all");
     try {
         const allData = await request.json();
-        document.getElementById("temp").innerHTML = allData[0].temperature;
-        document.getElementById("date").innerHTML = allData[0].date;
-        document.getElementById("content").innerHTML = allData[0].userResponse;
+        document.getElementById("temp").innerHTML = allData.temperature;
+        document.getElementById("date").innerHTML = allData.date;
+        document.getElementById("content").innerHTML = allData.userResponse;
     } catch (error) {
         console.log("error", error);
     }

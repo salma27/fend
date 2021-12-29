@@ -38,7 +38,7 @@ app.get("/all", getAllData);
 
 // Callback function to complete GET '/all'
 function getAllData(req, res) {
-    res.send(data);
+    res.send(projectData);
 }
 // Post Route
 app.post("/add", addData);
@@ -51,6 +51,8 @@ function addData(req, res) {
         date: newData.date,
         userResponse: newData.userResponse,
     };
-    data.unshift(newEntry);
-    res.send(data);
+    projectData = newEntry;
+    res.send(projectData);
+    //data.unshift(newEntry);
+    //res.send(data);
 }
